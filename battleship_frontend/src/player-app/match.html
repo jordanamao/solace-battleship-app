@@ -1,0 +1,26 @@
+<template>
+  <require from="../common/scoreboard"></require>
+  <div show.bind="pageState === 'Player1' || pageState ==='Player2'" class="flex-column align__center w-100 h-100">
+    <div class="match-board__score-card">
+      <div class="match-board__score-card__title">REMAINING SHIPS</div>
+      <div class="match-board__score-card__heading-p1">Player1<br />(${gameStart.Player1.playerNickname})</div>
+      <div class="match-board__score-card__heading-p2">Player2<br />(${gameStart.Player2.playerNickname})</div>
+      <div class="match-board__score-card__score-p1"><scoreboard score.bind="scoreMap['Player1']"></scoreboard></div>
+      <div class="match-board__score-card__score-p2"><scoreboard score.bind="scoreMap['Player2']"></scoreboard></div>
+    </div>
+    <div class="match-board__board justify_center">
+      <label class="match-board__yourturn-label">
+        <span>${turnMessage}</span>
+      </label>
+      <div class="board__container">
+        <div class="board">
+          <div repeat.for="row of gameParams.gameboardDimensions" class="board__row">
+            <div repeat.for="column of gameParams.gameboardDimensions" class="board__square" click.delegate="boardSelectEvent(column, $parent.row)">
+              ${enemyBoard[column][$parent.row] === "empty" ? "?" : (enemyBoard[column][$parent.row] === "miss") ? "🌊" : "🎯"}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

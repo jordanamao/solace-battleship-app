@@ -1,0 +1,10 @@
+<template>
+  <require from="./player-qr"></require>
+  <div class="landing-page__container">
+    <label>Players scan the QR Code to join Match Session: ${sessionId}</label>
+    <div class="join-screen">
+      <player-qr player="Player1" player-status.bind="player1Status" session-id.to-view="sessionId"></player-qr>
+      <player-qr player="Player2" player-status.bind="player2Status" session-id.to-view="sessionId"></player-qr>
+    </div>
+  </div>
+</template>

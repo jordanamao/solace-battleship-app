@@ -1,0 +1,639 @@
+@import url("https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap");
+
+body {
+  background-color: black;
+  margin: 0;
+}
+
+/**
+ * Main Layout
+ */
+
+.main-layout__grid {
+  display: grid;
+  grid-template-rows: 60px 1fr;
+  height: 100vh;
+  max-width: 100vw;
+}
+
+.main-layout__header {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  color: #00c895;
+  font-family: "Press Start 2P", cursive;
+  font-size: 1.25em;
+  border-bottom-color: grey;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+}
+
+.main-layout__content {
+  display: flex;
+  width: 100%;
+  color: #fff;
+  font-family: "Press Start 2P", cursive;
+  font-size: 1em;
+}
+
+/**
+ * Landing page
+ */
+
+.landing-page__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.landing-page__start-button {
+  background-color: #00c895;
+  border: none;
+  color: #fff;
+  font-family: "Press Start 2P", cursive;
+  font-size: 1em;
+  text-decoration: none;
+  width: 250px;
+  padding: 20px;
+  margin: 20px;
+}
+
+.landing-page__nav-button {
+  background-color: #00c895;
+  border: none;
+  color: #fff;
+  font-family: "Press Start 2P", cursive;
+  font-size: 1em;
+  text-decoration: none;
+  width: 100px;
+  padding: 20px;
+}
+
+.landing-page__waiting-button {
+  background-color: grey;
+  border: none;
+  color: #fff;
+  font-family: "Press Start 2P", cursive;
+  font-size: 1em;
+  text-decoration: none;
+  width: 250px;
+  padding: 20px;
+  margin: 20px;
+}
+
+/**
+ * Waiting page
+ */
+
+.join-match__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.join-match__start-button {
+  background-color: #00c895;
+  border: none;
+  color: #fff;
+  font-family: "Press Start 2P", cursive;
+  font-size: 1em;
+  text-decoration: none;
+  width: 250px;
+  padding: 20px;
+  margin: 20px;
+}
+
+.join-match__waiting-button {
+  background-color: grey;
+  border: none;
+  color: #fff;
+  font-family: "Press Start 2P", cursive;
+  font-size: 1em;
+  text-decoration: none;
+  width: 250px;
+  padding: 20px;
+  margin: 20px;
+}
+
+/**
+ * Dashboard
+ */
+
+.dashboard-heading {
+  font-family: "Press Start 2P", cursive;
+  color: #00c895;
+  font-size: 50px;
+  text-align: center;
+}
+
+.board-container {
+  padding-top: 50px;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
+  grid-template-areas:
+    "turn turn"
+    "board-1 board-2"
+    "title-1 title-2"
+    "action action";
+  font-family: "Press Start 2P", cursive;
+  color: #00c895;
+  font-size: 15px;
+  justify-content: center;
+  text-align: center;
+}
+
+.game-board-turn {
+  grid-area: turn;
+}
+
+.game-board-player1 {
+  grid-area: board-1;
+}
+
+.game-board-player2 {
+  grid-area: board-2;
+}
+
+.game-board-title-player1 {
+  grid-area: title-1;
+}
+
+.game-board-title-player2 {
+  grid-area: title-2;
+}
+
+.game-board-action {
+  grid-area: action;
+  font-size: 50px;
+  text-transform: uppercase;
+}
+
+.hit-blinking {
+  animation: hit-blinkingText 0.8s infinite;
+}
+@keyframes hit-blinkingText {
+  0% {
+    color: rgb(255, 0, 0);
+  }
+  49% {
+    color: transparent;
+  }
+  50% {
+    color: transparent;
+  }
+  99% {
+    color: transparent;
+  }
+  100% {
+    color: rgb(255, 0, 0);
+  }
+}
+
+/**
+ * General components
+ */
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.panel {
+  border-color: var(--primary-outline-color);
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.panel__shadow {
+  border-color: var(--primary-outline-color);
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0.2em 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.1);
+}
+
+/**
+ * Alignment components
+ */
+
+.align__center {
+  align-items: center;
+}
+
+.justify__center {
+  justify-content: center;
+}
+
+.justify__flex-end {
+  justify-content: flex-end;
+}
+
+.justify__space-between {
+  justify-content: space-between;
+}
+
+.column-gap-2em {
+  column-gap: 2em;
+}
+
+.row-gap-2em {
+  row-gap: 2em;
+}
+
+.column-gap-1em {
+  column-gap: 1em;
+}
+
+.row-gap-1em {
+  row-gap: 1em;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.h-80 {
+  height: 80%;
+}
+
+.w-80 {
+  width: 80%;
+}
+
+.h-75 {
+  height: 75%;
+}
+
+.w-75 {
+  width: 75%;
+}
+
+.h-50 {
+  height: 50%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.border-box {
+  box-sizing: border-box;
+}
+
+.margin-top-10px {
+  margin-top: 10px;
+}
+
+.margin-top-20px {
+  margin-top: 20px;
+}
+
+.padding-10px {
+  padding: 10px;
+}
+
+.padding-20px {
+  padding: 20px;
+}
+
+.padding-top-bottom-20px {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.padding-30px {
+  padding: 30px;
+}
+
+/**
+ * Interactive board
+ */
+
+.board__container {
+  color: #000000;
+  margin-top: 10px;
+}
+
+.board__row {
+  display: flex;
+}
+
+.board__playerHeader {
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.board__square {
+  height: 50px;
+  width: 50px;
+  background: #fff;
+  border: 1px solid #999;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.2em;
+  line-height: 50px;
+  text-align: center;
+}
+
+.board__square:hover {
+  filter: brightness(80%);
+}
+
+.board__continue-button {
+  background-color: #00c895;
+  border: none;
+  color: #fff;
+  font-family: "Press Start 2P", cursive;
+  font-size: 1em;
+  text-decoration: none;
+  width: 250px;
+  padding: 20px;
+  margin: 20px;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.match-board__continue-label {
+  animation: blink 1.25s linear infinite;
+}
+
+.match-board__yourturn-label {
+  animation: blink 2s linear infinite;
+  text-align: center;
+  justify-content: center;
+}
+
+.match-board {
+  width: 100%;
+  height: 100%;
+}
+
+.match-board__board {
+  text-align: center;
+}
+
+.match-board__score-card {
+  border: 1px solid #00c895;
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    "title title"
+    "heading-p1 heading-p2"
+    "score-p1 score-p2";
+  font-family: "Press Start 2P", cursive;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.match-board__score-card__title {
+  padding: 5px 5px 5px 5px;
+  border-bottom: 1px solid #00c895;
+  grid-area: title;
+  font-size: 15px;
+}
+
+.match-board__score-card__heading-p1 {
+  grid-area: heading-p1;
+  padding: 5px 5px 5px 5px;
+  font-size: 10px;
+  border-bottom: 1px solid #00c895;
+  border-right: 1px solid #00c895;
+}
+
+.match-board__score-card__heading-p2 {
+  padding: 5px 5px 5px 5px;
+  grid-area: heading-p2;
+  font-size: 10px;
+  border-bottom: 1px solid #00c895;
+}
+
+.match-board__score-card__score-p1 {
+  padding: 5px 5px 5px 5px;
+  grid-area: score-p1;
+  background-color: white;
+  border-right: 1px solid #00c895;
+}
+
+.match-board__score-card__score-p2 {
+  padding: 5px 5px 5px 5px;
+  background-color: white;
+  grid-area: score-p2;
+}
+
+.scoreboard {
+  width: 0.6em;
+  height: 1em;
+  display: inline-block;
+  list-style-type: none;
+  margin: 0 0 0.1em 0;
+  padding: 0;
+  font-size: 75px;
+  font-family: impact, arial;
+  text-align: center;
+  color: #555;
+  border-radius: 0.1em;
+  box-shadow: 0.02em 0.03em 0.1em rgba(0, 0, 0, 0.5);
+}
+.scoreboard li {
+  position: absolute;
+  width: 0.6em;
+  height: 0.5em;
+  border-radius: 0.1em;
+  padding: 0;
+  transform-style: preserve-3d;
+  transform-origin: 100% 100% 0;
+}
+
+.scoreboard li > div {
+  width: 100%;
+  height: 99%;
+  line-height: 1em;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  border: 1px solid #777;
+  overflow: hidden;
+  background-color: #eee;
+  backface-visibility: hidden;
+}
+
+.scoreboard li > div:first-child {
+  border-radius: 0.1em 0.1em 0 0;
+}
+
+.scoreboard li > div:last-child {
+  border-radius: 0 0 0.1em 0.1em;
+  transform-origin: 0% 50%;
+  transform: rotateX(-180deg);
+}
+
+.scoreboard li > div:last-child div {
+  margin-top: -0.5em;
+}
+
+.scoreboard .prev,
+.scoreboard .curr,
+.scoreboard .next {
+  perspective: 200px;
+}
+
+.scoreboard .prev,
+.scoreboard .next {
+  z-index: 5;
+}
+.scoreboard .prev,
+.scoreboard .curr {
+  transform: rotateX(180deg);
+}
+.scoreboard .prev {
+  border-radius: 0.1em 0.1em 0 0;
+}
+.scoreboard .curr {
+  z-index: 10;
+  transition: transform 0.3s linear;
+}
+.scoreboard .next {
+  transform: rotateX(0);
+}
+
+body,
+html {
+  height: 100%;
+}
+
+#particles-js canvas {
+  display: block;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+  -webkit-transition: opacity 0.8s ease, -webkit-transform 1.4s ease;
+  transition: opacity 0.8s ease, transform 1.4s ease;
+}
+
+#particles-js {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -10;
+  top: 0;
+  left: 0;
+}
+
+.game-over--msg {
+  font-size: 1000%;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+
+.won-blinking {
+  animation: won-blinkingText 0.5s infinite;
+}
+@keyframes won-blinkingText {
+  0% {
+    color: #00c895;
+  }
+  49% {
+    color: transparent;
+  }
+  50% {
+    color: #00c895;
+  }
+  99% {
+    color: transparent;
+  }
+  100% {
+    color: #00c895;
+  }
+}
+
+.lose-blinking {
+  animation: lose-blinkingText 0.5s infinite;
+}
+
+@keyframes lose-blinkingText {
+  0% {
+    color: red;
+  }
+  49% {
+    color: transparent;
+  }
+  50% {
+    color: red;
+  }
+  99% {
+    color: transparent;
+  }
+  100% {
+    color: red;
+  }
+}
+
+.join-screen {
+  display: grid;
+  grid-template-columns: "auto auto";
+  grid-template-rows: "auto auto";
+  grid-row-gap: 50px;
+  grid-column-gap: 50px;
+  grid-template-areas:
+    "player1-title player2-title"
+    "player1-qr player2-qr"
+    "player1-wait player2-wait";
+  justify-content: center;
+  text-align: center;
+  margin-top: 100px;
+}
+
+.join-screen__Player1-title {
+  grid-area: player1-title;
+}
+
+.join-screen__Player2-title {
+  grid-area: player2-title;
+}
+
+.join-screen__Player1-qr {
+  grid-area: player1-qr;
+}
+
+.join-screen__Player2-qr {
+  grid-area: player2-qr;
+}
+
+.join-screen__Player1-wait {
+  grid-area: player1-wait;
+  padding-top: 25px;
+}
+
+.join-screen__Player2-wait {
+  grid-area: player2-wait;
+  padding-top: 25px;
+}

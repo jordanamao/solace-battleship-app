@@ -1,0 +1,27 @@
+<template>
+  <div class="flex-column justify__center align__center w-100 h-100">
+    <div class="board__playerHeader">${player.name} (${player.nickname})</div>
+    <br />
+    <br />
+    <label show.bind="(gameParams.allowedShips - placedShips) != 0">
+      Place ${gameParams.allowedShips - placedShips} more ships
+    </label>
+    <label class="board__continue-label" show.bind="(gameParams.allowedShips  - placedShips) == 0 && !donePlacing">
+      PRESS CONTINUE!
+    </label>
+    <div class="board__container">
+      <div repeat.for="row of gameParams.gameboardDimensions" class="board__row">
+        <div repeat.for="column of gameParams.gameboardDimensions" class="board__square" click.delegate="boardSelectEvent(column,$parent.row)">
+          ${player.internalBoardState[column][$parent.row] === "empty" ? "🌊" : "🚢"}
+        </div>
+      </div>
+    </div>
+    <button class="board__continue-button" click.delegate="beginMatch()" show.bind="(gameParams.allowedShips  - placedShips) == 0 && !donePlacing">
+      CONTINUE
+    </button>
+    <br /><br />
+    <label show.bind="donePlacing">
+      WAITING FOR OPPONENT TO SET BOARD!
+    </label>
+  </div>
+</template>

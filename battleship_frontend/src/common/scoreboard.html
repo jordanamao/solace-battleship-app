@@ -1,0 +1,11 @@
+<template>
+  <ul class="scoreboard">
+    <li
+      repeat.for="i of gameparams.allowedShips+1"
+      class="${score===gameparams.allowedShips-i?'curr':(((score-1===gameparams.allowedShips-i) || (score-1===-1 && gameparams.allowedShips-i===5))?'next':(score+1===gameparams.allowedShips-i?'prev':''))}"
+    >
+      <div><div>${i===0?i:gameparams.allowedShips+1-i}</div></div>
+      <div><div>${gameparams.allowedShips-i}</div></div>
+    </li>
+  </ul>
+</template>

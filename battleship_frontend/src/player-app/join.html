@@ -1,0 +1,14 @@
+<template>
+  <div class="landing-page__container">
+    <div show.bind="pageState ==='WAITING'" class="flex-column padding-20px align__center">
+      <p>Waiting for other player to join...</p>
+    </div>
+    <div show.bind="pageState === 'PLAYER_DETAILS'" class="flex-column padding-20px">
+      <label>Enter a player nickname: </label>
+      <input class="margin-top-10px" type="text" value.two-way="playerNickname" size="3" />
+      <div class="flex justify__flex-end margin-top-10px">
+        <button class="landing-page__nav-button margin-top-10px" click.trigger="joinGame()">Next</button>
+      </div>
+    </div>
+  </div>
+</template>
